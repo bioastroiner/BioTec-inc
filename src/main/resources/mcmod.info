@@ -1,0 +1,18 @@
+[
+{
+  "modid": "biotec",
+  "name": "BioTec",
+  "description": "Adding Biological Sense to Gregtech's Science",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["BioAst"],
+  "credits": "All the Gregicality's Members,GTNH and Greg",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": [
+    "gregtech"
+  ]
+}
+]
