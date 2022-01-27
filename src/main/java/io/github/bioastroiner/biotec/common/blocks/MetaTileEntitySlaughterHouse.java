@@ -14,11 +14,8 @@ import gregtech.api.metatileentity.MetaTileEntityHolder;
 import gregtech.api.metatileentity.SimpleMachineMetaTileEntity;
 import gregtech.api.recipes.RecipeMap;
 import gregtech.api.unification.material.Materials;
-import gregtech.api.util.GTFluidUtils;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.Textures;
-import gregtech.common.MetaFluids;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
@@ -36,7 +33,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.storage.loot.LootContext;
 import net.minecraft.world.storage.loot.LootTable;
-import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.util.FakePlayerFactory;
 import net.minecraftforge.fluids.FluidTank;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -44,7 +40,6 @@ import net.minecraftforge.items.IItemHandlerModifiable;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
@@ -66,13 +61,18 @@ public class MetaTileEntitySlaughterHouse extends SimpleMachineMetaTileEntity im
     private int lastTick;
     private Supplier<Iterable<BlockPos.MutableBlockPos>> range;
 
-    public MetaTileEntitySlaughterHouse(ResourceLocation metaTileEntityId, RecipeMap<?> recipeMap, ICubeRenderer renderer, int tier) {
-        super(metaTileEntityId, recipeMap, renderer, tier, true);
+    public MetaTileEntitySlaughterHouse(ResourceLocation metaTileEntityId, ICubeRenderer renderer, int tier) {
+        super(metaTileEntityId, null, renderer, tier, true);
         this.outputAmount = 20 + getTier()*10;
         this.energyPerTick = GTValues.V[tier] / 4; // uses a quarter of an amp per tick, and even less while idle
         this.lastTick = 0;
         this.speed = (int) Math.pow(2, tier);
         initializeInventory();
+    }
+
+    @Override
+    public RecipeMap<?> getRecipeMap() {
+        return super.getRecipeMap();
     }
 
     @Override
@@ -92,7 +92,7 @@ public class MetaTileEntitySlaughterHouse extends SimpleMachineMetaTileEntity im
 
     @Override
     public MetaTileEntity createMetaTileEntity(MetaTileEntityHolder holder) {
-        return new MetaTileEntitySlaughterHouse(metaTileEntityId, workable.getRecipeMap(), renderer, getTier());
+        return new MetaTileEntitySlaughterHouse(metaTileEntityId, renderer, getTier());
     }
 
     @Override

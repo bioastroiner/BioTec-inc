@@ -4,7 +4,7 @@ import gregtech.api.items.metaitem.MetaItem;
 
 import java.util.List;
 
-public class BTMetaItems {
+public class MetaItems {
     public static List<MetaItem<?>> ITEMS = MetaItem.getMetaItems();
 
     public static void init() {
