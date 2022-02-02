@@ -3,3 +3,6 @@ metaitem.misc.can_galvanized.tooltip=Who was Galvani again?
 metaitem.misc.can_steel.name=Steel Can
 metaitem.misc.can_tin.name=Tin Can
 metaitem.misc.can_silver.name=Silver Can
+
+biotec.machine.grinder.mode_loot="Looting Mode ON, Beware of Overloading the export Hatch! machine would seize its Operation if full!"
+biotec.machine.grinder.mode_normal="Looting Mode OFF, Concerving Power"

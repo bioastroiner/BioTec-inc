@@ -36,9 +36,9 @@ public class BTMetaItem extends StandardMetaItem {
     @Override
     public void registerSubItems() {
         //BIO_INSPECTOR = addItem(1, "tool.laser.inspector").addComponents(new LaserInspectorToolBehaviour()).setMaxStackSize(1);
-        CAN_GALVANIZED = addItem(1,"misc.can_galvanized");
-        CAN_STEEL = addItem(2,"misc.can_steel");
-        CAN_TIN = addItem(3,"misc.can_tin");
+        //CAN_GALVANIZED = addItem(1,"misc.can_galvanized");
+        //CAN_STEEL = addItem(2,"misc.can_steel");
+        //CAN_TIN = addItem(3,"misc.can_tin");
     }
 
     @Override
